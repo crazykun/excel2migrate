@@ -83,6 +83,7 @@ def create_migrate(file):
                         if key in field_type:
                             column += sql_demo[key] % (field_name, field_type, field_commet)
                             column += NEWLINE
+                            break
 
     return '[+] create table migrate over...'
 
