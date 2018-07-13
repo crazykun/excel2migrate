@@ -72,15 +72,18 @@ def create_migrate(file):
                     table_num+=1
                     print('create table', filename, ' success')
                 table_name=field_name;
+                print("create migrate : "+table_name)
             else:
                 field_commet=table.row_values(i)[5]
                 for key in sql_demo:
                     if '主键' in field_name:
-                        column += sql_demo['pk'] % (field_name.replace('(主键)',''),'主键')
+                        print("create column : "+field_name)
+                        column += sql_demo['pk'] % (field_name.replace('(主键)','').strip(),'主键')
                         column += NEWLINE
                         break                        
                     else:
                         if key in field_type:
+                            print("create column : "+field_name)
                             column += sql_demo[key] % (field_name, field_type, field_commet)
                             column += NEWLINE
                             break
