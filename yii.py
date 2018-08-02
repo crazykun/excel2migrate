@@ -74,7 +74,7 @@ def create_migrate(file):
         else:
             table_field=table.row_values(i)[:5]
             is_pk = table_field[4]
-            if is_pk=='pk':
+            if  'pk' in is_pk:
                 column += sql_demo['pk'] % (table_field[1],  table_field[4])
                 column += NEWLINE
             else:
@@ -105,7 +105,7 @@ def del_old_migrate_file(path=MIGRATE_PATH):
         os.remove(path_file)
  
 def main():
-    file = '/data/python/test/trip.xls'
+    file =  os.path.abspath('.')+'/1.xlsx'
     del_old_migrate_file()
     re=create_migrate(file)
     print(re)

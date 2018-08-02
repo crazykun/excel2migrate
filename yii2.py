@@ -58,7 +58,7 @@ def create_migrate(file):
     for i in range(nrows):  # 循环逐行打印  
         #print('line ',i)
         field_name=str(table.row_values(i)[0])
-        if  field_name=='' or  field_name in ['键名','PRIMARY','字段']:
+        if  field_name=='' or  field_name in ['键名','PRIMARY','字段'] or '表注释' in field_name:
             continue
         else:
             field_type=str(table.row_values(i)[1])
